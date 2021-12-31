@@ -1,13 +1,6 @@
 name: ci
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  # build weekly for fresh base docker image
-  schedule:
-    - cron: '30 4 * * 1'
+on: workflow_dispatch
 
 jobs:
   test_build_push:
@@ -26,7 +19,7 @@ jobs:
         id: docker_meta
         uses: docker/metadata-action@v3
         with:
-          images: michaelwoods/onstar2mqtt
+          images: shoejosh/onstar2mqtt-rpi
           flavor: |
             latest=true
           tags: |
